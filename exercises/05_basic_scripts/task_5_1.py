@@ -28,3 +28,10 @@ words = [
     'Guido', 'van', 'Rossum', 'began', 'working', 'on',
     'Python', 'in', 'the', 'late', '1980s',
 ]
+upromtp = int(input("Enter separator: "))
+
+if len(words) > upromtp:
+    result = words[upromtp].lower()
+else:
+    result = "You entered wrong index"
+print(result)

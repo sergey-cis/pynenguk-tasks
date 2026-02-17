@@ -24,3 +24,7 @@ Guido===van===Rossum===began===working===on===Python
 Обмеження: не можна редагувати список words.
 """
 words = ['Guido', 'van', 'Rossum', 'began', 'working', 'on', 'Python']
+
+separ = input("Enter separator: ")
+result = (separ).join(words)
+print(result)
