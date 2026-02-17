@@ -25,3 +25,7 @@ command1 і в команді command2 (перетин). Елементи спи
 
 command1 = "switchport trunk allowed vlan 1,2,3,5,8"
 command2 = "switchport trunk allowed vlan 1,3,8,9"
+com1 = command1.split()[-1].split(",")
+com2 = command2.split()[-1].split(",")
+result = sorted(set(com1) & set(com2))
+print(result)

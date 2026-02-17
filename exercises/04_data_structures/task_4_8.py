@@ -23,3 +23,11 @@
 """
 
 ip = "192.168.3.1"
+bin_ip = ip.split(".")
+template = """
+{0:<10}{1:<10}{2:<10}{3:<10}
+{0:08b}  {1:08b}  {2:08b}  {3:08b}
+"""
+
+print(template.format(int(bin_ip[0]), int(
+    bin_ip[1]), int(bin_ip[2]), int(bin_ip[3])))

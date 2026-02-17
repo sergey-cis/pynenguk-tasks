@@ -35,5 +35,11 @@ from pprint import pprint
 
 number_as_str = input("Enter a number greater than 10: ")
 number = int(number_as_str)
-pprint(number_as_str)
-pprint(number)
+right_answ = "correct"
+wrong_anws = "wrong"
+if number > 10:
+    pprint(f'{number_as_str}')
+    print(f'{right_answ}')
+else:
+    pprint(f'{number}')
+    print(f'{wrong_anws}')

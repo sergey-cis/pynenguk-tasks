@@ -27,5 +27,12 @@ $ python task_11.py
 
 При цьому не можна змінювати список colors.
 """
-colors = ["Green", 'RED', 'Pink', 'YELLOW', 'white', 'Black']
+colors = ["Green", "RED", "Pink", "YELLOW", "white", "Black"]
+ucol = input("Введіть колір: ").lower()
 
+for col in colors:
+    if ucol == col.lower():
+        print("Такий колір є")
+        break
+else:
+    print("У списку colors немає такого кольору")

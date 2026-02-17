@@ -21,3 +21,6 @@ words = [
     'Guido', 'van', 'Rossum', 'began', 'working', 'on',
     'Python', 'in', 'the', 'late', '1980s',
 ]
+new_words = words[::2]
+new_str = (" ").join(new_words)
+print(new_str)

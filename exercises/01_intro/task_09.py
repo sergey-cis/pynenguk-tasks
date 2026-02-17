@@ -20,6 +20,12 @@ $ python task_09.py
 ==============================
 """
 numbers = [10, 20, 30, 40]
+check_num = numbers[-1]
+
 print("=" * 30)
 for num in numbers:
     print(num)
+    if num != check_num:
+        print("*" * 30)
+    else:
+        print("=" * 30)

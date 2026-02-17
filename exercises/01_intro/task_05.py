@@ -7,4 +7,8 @@
 """
 words = ["line", "test", "column"]
 index = 2
-
+print(words[index])
+index = 1
+print(words[index])
+index = 0
+print(words[index])

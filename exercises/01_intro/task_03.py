@@ -17,5 +17,7 @@ $ python task_03.py
 Обмеження: рядок start_data не можна змінювати вручну, тільки за допомогою Python.
 """
 start_data = "Python is a high-level, interpreted, general-purpose programming language."
-print(start_data)
+start_data = start_data.split()
+print(str(start_data[3:-1]))
+
 

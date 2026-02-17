@@ -10,5 +10,11 @@ Ruby is a high-level, interpreted, general-purpose programming language.
 При цьому не можна змінювати рядок start_data вручну, тільки за допомогою Python.
 """
 start_data = "Python is a high-level, interpreted, general-purpose programming language."
+start_data = start_data.replace("Python", "Ruby")
 print(start_data)
 
+find_word = "level"
+index = start_data.find(find_word)
+print(index)
+cmd = start_data[index:]
+print(cmd.upper())
