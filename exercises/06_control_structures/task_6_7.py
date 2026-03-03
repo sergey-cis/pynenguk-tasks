@@ -49,12 +49,12 @@ interface FastEthernet0/7
 access закоментувати.
 """
 
-access_template = [
-    "switchport mode access",
-    "switchport access vlan",
-    "spanning-tree portfast",
-    "spanning-tree bpduguard enable",
-]
+# access_template = [
+# "switchport mode access",
+# "switchport access vlan",
+# "spanning-tree portfast",
+# "spanning-tree bpduguard enable",
+# ]
 
 trunk_template = [
     "switchport trunk encapsulation dot1q",
@@ -62,7 +62,7 @@ trunk_template = [
     "switchport trunk allowed vlan",
 ]
 
-access = {"0/12": "10", "0/14": "11", "0/16": "17", "0/17": "150"}
+# access = {"0/12": "10", "0/14": "11", "0/16": "17", "0/17": "150"}
 trunk = {
     "0/1": ["add", "10", "20", "30", "40"],
     "0/2": ["only", "11", "30"],
@@ -71,10 +71,31 @@ trunk = {
     "0/7": ["only", "30"],
 }
 
+########### Access ports config ########
 # for intf, vlan in access.items():
-#     print("interface FastEthernet" + intf)
-#     for command in access_template:
-#         if command.endswith("access vlan"):
-#             print(f" {command} {vlan}")
-#         else:
-#             print(f" {command}")
+#    print("interface FastEthernet" + intf)
+#    for command in access_template:
+#        if command.endswith("access vlan"):
+#            print(f" {command} {vlan}")
+#        else:
+#            print(f" {command}")
+#
+
+####### Trunk prorts config ############
+for intf, vlan_list in trunk.items():
+    print("interface FastEthernet" + intf)
+
+    action = vlan_list[0]
+    vlans = vlan_list[1:]
+    vlan_string = ",".join(vlans)
+
+    for command in trunk_template:
+        if command.endswith("allowed vlan"):
+            if action == "only":
+                print(f" {command} {vlan_string}")
+            elif action == "add":
+                print(f" {command} add {vlan_string}")
+            elif action == "del":
+                print(f" {command} remove {vlan_string}")
+        else:
+            print(f" {command}")
