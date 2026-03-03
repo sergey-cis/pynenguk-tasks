@@ -61,4 +61,4 @@ dev_name = input("Enter device name: ")
 dev_param = london_co.get(dev_name)
 param = input(f"Enter parameter name({dev_param})")
 result = dev_param[param]
-print(dev_param[result])
+print(result)

@@ -22,3 +22,11 @@
 files = [
     "cfg_1.txt", "cfg_4.txt", "cfg_8.txt", "cfg_9.txt", "cfg_12.txt", "cfg_15.txt"
 ]
+result = []
+for cf in files:
+    if len(cf) < 10:
+        new_cf = cf.replace("cfg_", "cfg_0")
+        result.append(new_cf)
+    else:
+        result.append(cf)
+print(result)

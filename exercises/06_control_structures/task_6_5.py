@@ -51,4 +51,24 @@ Correct!
 from random import randint
 
 random_number = randint(1, 9)
-# print(random_number)
+attempts = 0
+
+while attempts < 5:
+    ask_us = input("Enter number: ")
+    if not ask_us.isdigit():
+        print("Please enter a valid number.")
+        continue
+    guess = int(ask_us)
+    if guess == random_number:
+        print("Correct! ")
+        break
+    elif guess < random_number:
+        print("Your guess is too low.")
+    else:
+        print("Your guess is too high.")
+    attempts += 1
+    # print(f"Attempts left:({5} - {attempts}")
+else:
+    # This runs only if loop finishes without break
+    # print(f"You didn't guess it. The number was {random_number}.")
+    print("Number not guessed after 5 tries")

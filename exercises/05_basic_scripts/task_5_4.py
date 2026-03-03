@@ -16,3 +16,13 @@
   стовпцями для поділу октетів між собою)
 
 """
+
+ip_temp = """
+Network:
+{0:<10}{1:<10}{2:<10}{3:<10}
+{0:08b}  {1:08b}  {2:08b}  {3:08b}
+"""
+get_ip = input("Enter IP address -> ")
+res = get_ip.split(".")
+oct1, oct2, oct3, oct4 = int(res[0]), int(res[1]), int(res[2]), int(res[3])
+print(ip_temp.format(oct1, oct2, oct3, oct4))

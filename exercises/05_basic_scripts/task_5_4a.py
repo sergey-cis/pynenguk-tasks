@@ -49,3 +49,28 @@ Mask:
 255       255       255       240
 11111111  11111111  11111111  11110000
 """
+network = input("Enter IP address & Netmask: ").rstrip().lstrip().strip()
+
+ip_mask = network.split(" ")
+oct1, oct2, oct3, oct4, oct5, oct6, oct7, oct8 = [
+    int(ip_mask[0].split(".")[0]),
+    int(ip_mask[0].split(".")[1]),
+    int(ip_mask[0].split(".")[2]),
+    int(ip_mask[0].split(".")[3]),
+    int(ip_mask[1].split(".")[0]),
+    int(ip_mask[1].split(".")[1]),
+    int(ip_mask[1].split(".")[2]),
+    int(ip_mask[1].split(".")[3])
+]
+# Template
+ip_output = """
+Network:
+{0:<8}  {1:<8}  {2:<8}  {3:<8}
+{0:08b}  {1:08b}  {2:08b}  {3:08b}
+ 
+Mask:
+{4:<8}  {5:<8}  {6:<8}  {7:<8}
+{4:08b}  {5:08b}  {6:08b}  {7:08b}
+ """
+# Output
+print(ip_output.format(oct1, oct2, oct3, oct4, oct5, oct6, oct7, oct8))

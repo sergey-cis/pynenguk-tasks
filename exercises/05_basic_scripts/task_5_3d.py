@@ -50,3 +50,9 @@ london_co = {
         "routing": True,
     },
 }
+dev_name = input("Enter device name: ")
+dev_par = london_co.get(dev_name)
+param = input(f"Enter parameter name: \n {dev_par}\n -> ").lower()
+
+result = london_co.get(dev_name, {}).get(param, "no such parameter")
+print(result)
