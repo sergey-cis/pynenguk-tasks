@@ -61,3 +61,12 @@ trunk_template = """switchport trunk encapsulation dot1q
 switchport mode trunk
 switchport trunk allowed vlan {}
 """
+int_type = input("Enter interface mode (access/trunk): ")
+int_num = input("Enter interface type and number: ")
+vlan_num = input("Enter VLAN(s) number: ")
+if int_type == "trunk":
+    print(f"interface {int_num}")
+    print(trunk_template.format(vlan_num))
+if int_type == "access":
+    print(f"interface {int_num}")
+    print(access_template.format(vlan_num))

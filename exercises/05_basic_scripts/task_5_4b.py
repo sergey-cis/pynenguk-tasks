@@ -44,26 +44,40 @@ bin_ip = "0000101000000001000000111000011"
 00001010000000010000000111000000
 """
 # Solution
+# Get user input
 network = input("Enter IP address & Netmask: ").strip().lower()
+# Get IP & Netmask
 dig_net = network.split(' ')[0].split(".")
 dig_m = network.split(" ")[1].split(".")
-bin_ip1, binip2, binip3, binip4 = int(dig_net[0]), int(
+# Convert octets to digital
+dig_o1, dig_o2, dig_o3, dig_o4 = int(dig_net[0]), int(
     dig_net[1]), int(dig_net[2]), int(dig_net[3])
-bin_m1, bin_m2, bin_m3, bin_m4 = int(dig_m[0]), int(
+dig_m1, dig_m2, dig_m3, dig_m4 = int(dig_m[0]), int(
     dig_m[1]), int(dig_m[2]), int(dig_m[3])
-# full_bin_net = (
-# f'{bin(int(dig_net[0]))[2:8]}+ {bin(int(dig_net[1]))[2:8]}+{bin(int(dig_net[2]))[2:8]}+{bin(int(dig_net[3]))[2:8]}')
+# Convert digital octets to binary
+bin_m1 = (f"{dig_m1:08b}")
+bin_m2 = (f"{dig_m2:08b}")
+bin_m3 = (f"{dig_m3:08b}")
+bin_m4 = (f"{dig_m4:08b}")
+
+bin_ip1 = (f"{dig_o1:08b}")
+bin_ip2 = (f"{dig_o2:08b}")
+bin_ip3 = (f"{dig_o3:08b}")
+bin_ip4 = (f"{dig_o4:08b}")
+# Get Network Length
+mask_len = (bin_m1+bin_m2+bin_m3+bin_m4).count("1")
+net_part = (bin_ip1+bin_ip2+bin_ip3+bin_ip4)[mask_len:] + "0" * (32-mask_len)
 
 # Template
-ip_output = """
+ip_output = f"""
 Network:
-{0:<8}  {1:<8}  {2:<8}  {3:<8}
-{0:08b}  {1:08b}  {2:08b}  {3:08b}
- 
+{dig_o1:<10}  {dig_o2:<10}  {dig_o3:<10}  {dig_o4:<10}
+{bin_ip1:<10}  {bin_ip2:<10}  {bin_ip3:<10}  {bin_ip4:<10}
+
 Mask:
-{4:<8}  {5:<8}  {6:<8}  {7:<8}
-{4:08b}  {5:08b}  {6:08b}  {7:08b}
- """
-# Output
-print(ip_output.format(bin_ip1, binip2, binip3,
-      binip4, bin_m1, bin_m2, bin_m3, bin_m4))
+/{mask_len}
+{dig_m1:<10}  {dig_m2:<10}  {dig_m3:<10}  {dig_m4:<10}
+{bin_m1:<10}  {bin_m2:<10}  {bin_m3:<10}  {bin_m4:<10}
+"""
+
+print(ip_output)
